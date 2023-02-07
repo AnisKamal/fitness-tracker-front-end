@@ -1,16 +1,14 @@
 <section>
     <form fxLayout="column"
      fxLayoutAlign="center center" 
-     #f="ngForm" 
-     (ngSubmit)="onSubmit(f)">
+     [formGroup]="loginForm"
+     (ngSubmit)="onSubmit()">
     
         <mat-form-field>
             <input type="email"
                    placeholder="enter your email"
                    matInput
-                   name="email"
-                   email
-                   required
+                   formControlName="email"
                     >
             <mat-error>Email is invalide</mat-error>        
         </mat-form-field>
@@ -19,15 +17,14 @@
             <input type="password"
                    matInput
                    placeholder=" Enter Your Password"
-                   name="password"
-                   required
+                   formControlName="password"
                     >
         </mat-form-field>
 
         <button type="submit"
                 mat-raised-button
                 color="primary" 
-                [disabled]="f.invalid">
+                [disabled]="loginForm.invalid">
             Login
         </button>
 

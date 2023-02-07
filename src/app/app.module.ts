@@ -15,10 +15,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidnavListComponent } from './navigation/sidnav-list/sidnav-list.component';
 import { StopTrainingComponent } from './training/current-training/stop-training.component';
+import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 
 
@@ -43,9 +45,10 @@ import { StopTrainingComponent } from './training/current-training/stop-training
     BrowserAnimationsModule, 
     MaterialModule, 
     FlexLayoutModule, 
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent], 
   entryComponents: [StopTrainingComponent]
 })
